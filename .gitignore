@@ -21,7 +21,6 @@ htmlcov/
 
 # .env файлы (секреты, ключи, пароли)
 .env
-.env.*
 
 # --- Node / React ---
 frontend/node_modules/
