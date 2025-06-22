@@ -10,6 +10,7 @@ RUN poetry config virtualenvs.create false \
 
 COPY . .
 
-RUN sh -c '[ -f .env ] || cp .env.example .env'
+COPY entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["./entrypoint.sh"]
