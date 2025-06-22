@@ -84,9 +84,9 @@ import {
         if (!deleteTarget) return;
     
         let url = '';
-        if (deleteTarget.type === 'source') url = `/api/v1/sources/${deleteTarget.id}`;
-        else if (deleteTarget.type === 'category') url = `/api/v1/categories/${deleteTarget.id}`;
-        else if (deleteTarget.type === 'week') url = `/api/v1/weeks/${deleteTarget.id}`;
+        if (deleteTarget.type === 'source') url = `/v1/sources/${deleteTarget.id}`;
+        else if (deleteTarget.type === 'category') url = `/v1/categories/${deleteTarget.id}`;
+        else if (deleteTarget.type === 'week') url = `/v1/weeks/${deleteTarget.id}`;
     
         try {
           await api.delete(url);
