@@ -71,7 +71,7 @@ function WeekExplorer({ onLogout }) {
     if (!editingLead) return
 
     try {
-      const res = await api.put(`/api/v1/lead_metrics/${editingLead.id}`, {
+      const res = await api.put(`/v1/lead_metrics/${editingLead.id}`, {
         amount: Number(editingLead.amount),
         leads_count: Number(editingLead.leads_count),
         week_id: editingLead.week_id,
@@ -114,7 +114,7 @@ function WeekExplorer({ onLogout }) {
     if (!addingLead) return
 
     try {
-      const res = await api.post('/api/v1/lead_metrics/', {
+      const res = await api.post('/v1/lead_metrics/', {
         amount: Number(addingLead.amount),
         leads_count: Number(addingLead.leads_count),
         week_id: addingLead.week_id,

@@ -101,7 +101,7 @@ import {
   
     const handleCreateSource = async () => {
       try {
-        await api.post('/api/v1/sources', { name: newSourceName });
+        await api.post('/v1/sources', { name: newSourceName });
         toast({ title: 'Источник добавлен', status: 'success' });
         setNewSourceName('');
         closeSourceModal();
@@ -113,7 +113,7 @@ import {
   
     const handleCreateCategory = async () => {
       try {
-        await api.post('/api/v1/categories', { name: newCategoryName });
+        await api.post('/v1/categories', { name: newCategoryName });
         toast({ title: 'Категория добавлена', status: 'success' });
         setNewCategoryName('');
         closeCategoryModal();
@@ -133,7 +133,7 @@ import {
             return;
         }
         try {
-            await api.post('/api/v1/weeks', {
+            await api.post('/v1/weeks', {
                 start_date: newWeekStart,
                 end_date: newWeekEnd,
         });
