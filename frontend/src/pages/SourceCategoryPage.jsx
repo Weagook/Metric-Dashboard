@@ -68,9 +68,9 @@ import {
     const fetchData = async () => {
       try {
         const [srcRes, catRes, weekRes] = await Promise.all([
-            api.get('/v1/sources'),
-            api.get('/v1/categories'),
-            api.get('/v1/weeks'),
+            api.get('/sources'),
+            api.get('/categories'),
+            api.get('/weeks'),
           ]);
         setSources(srcRes.data.data);
         setCategories(catRes.data.data);
@@ -84,9 +84,9 @@ import {
         if (!deleteTarget) return;
     
         let url = '';
-        if (deleteTarget.type === 'source') url = `/v1/sources/${deleteTarget.id}`;
-        else if (deleteTarget.type === 'category') url = `/v1/categories/${deleteTarget.id}`;
-        else if (deleteTarget.type === 'week') url = `/v1/weeks/${deleteTarget.id}`;
+        if (deleteTarget.type === 'source') url = `/sources/${deleteTarget.id}`;
+        else if (deleteTarget.type === 'category') url = `/categories/${deleteTarget.id}`;
+        else if (deleteTarget.type === 'week') url = `/weeks/${deleteTarget.id}`;
     
         try {
           await api.delete(url);
@@ -101,7 +101,7 @@ import {
   
     const handleCreateSource = async () => {
       try {
-        await api.post('/v1/sources', { name: newSourceName });
+        await api.post('/sources', { name: newSourceName });
         toast({ title: 'Источник добавлен', status: 'success' });
         setNewSourceName('');
         closeSourceModal();
@@ -113,7 +113,7 @@ import {
   
     const handleCreateCategory = async () => {
       try {
-        await api.post('/v1/categories', { name: newCategoryName });
+        await api.post('/categories', { name: newCategoryName });
         toast({ title: 'Категория добавлена', status: 'success' });
         setNewCategoryName('');
         closeCategoryModal();
@@ -133,7 +133,7 @@ import {
             return;
         }
         try {
-            await api.post('/v1/weeks', {
+            await api.post('/weeks', {
                 start_date: newWeekStart,
                 end_date: newWeekEnd,
         });

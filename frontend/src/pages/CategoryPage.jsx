@@ -42,7 +42,7 @@ function CategoryStatsPage({ onLogout }) {
         query = `?from_date=${fromDate}&to_date=${toDate}`
       }
   
-      const res = await api.get(`/v1/dashboard/category/${id}${query}`)
+      const res = await api.get(`/dashboard/category/${id}${query}`)
       if (res.status === 200 && res.data.status === 'ok') {
         setData(res.data.data)
       } else {
@@ -58,7 +58,7 @@ function CategoryStatsPage({ onLogout }) {
 
   const fetchCategoryName = async () => {
     try {
-      const res = await api.get(`/v1/categories/${id}`)
+      const res = await api.get(`/categories/${id}`)
       if (res.status === 200 && res.data.status === 'ok') {
         setCategoryName(res.data.data.name)
       } else {
@@ -78,7 +78,7 @@ function CategoryStatsPage({ onLogout }) {
 
   const fetchWeeks = async () => {
     try {
-      const res = await api.get('/v1/weeks');
+      const res = await api.get('/weeks');
       if (res.status === 200 && res.data.status === 'ok') {
         setWeeks(res.data.data);
       }

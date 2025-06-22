@@ -38,9 +38,9 @@ function WeekExplorer({ onLogout }) {
         setLoadingWeeks(true)
 
         const [weeksRes, sourcesRes, categoriesRes] = await Promise.all([
-          api.get('/v1/weeks/'),
-          api.get('/v1/sources/'),
-          api.get('/v1/categories/'),
+          api.get('/weeks/'),
+          api.get('/sources/'),
+          api.get('/categories/'),
         ])
 
         if (weeksRes.status !== 200 || weeksRes.data.status !== 'ok') {
@@ -71,7 +71,7 @@ function WeekExplorer({ onLogout }) {
     if (!editingLead) return
 
     try {
-      const res = await api.put(`/v1/lead_metrics/${editingLead.id}`, {
+      const res = await api.put(`/lead_metrics/${editingLead.id}`, {
         amount: Number(editingLead.amount),
         leads_count: Number(editingLead.leads_count),
         week_id: editingLead.week_id,
@@ -114,7 +114,7 @@ function WeekExplorer({ onLogout }) {
     if (!addingLead) return
 
     try {
-      const res = await api.post('/v1/lead_metrics/', {
+      const res = await api.post('/lead_metrics/', {
         amount: Number(addingLead.amount),
         leads_count: Number(addingLead.leads_count),
         week_id: addingLead.week_id,
@@ -157,7 +157,7 @@ function WeekExplorer({ onLogout }) {
     const key = `${weekId}-${sourceId}-${categoryId}`
     setLoadingLeadsKey(key)
     try {
-      const res = await api.get('/v1/lead_metrics', {
+      const res = await api.get('/lead_metrics', {
         params: {
           week_id: weekId,
           source_id: sourceId,
