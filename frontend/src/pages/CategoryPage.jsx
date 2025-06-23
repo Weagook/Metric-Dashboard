@@ -58,6 +58,7 @@ function CategoryStatsPage({ onLogout }) {
 
   const fetchCategoryName = async () => {
     try {
+      console.log('Category Name BaseUrl:', api.defaults.baseURL)
       const res = await api.get(`/categories/${id}`)
       if (res.status === 200 && res.data.status === 'ok') {
         setCategoryName(res.data.data.name)
@@ -78,7 +79,8 @@ function CategoryStatsPage({ onLogout }) {
 
   const fetchWeeks = async () => {
     try {
-      const res = await api.get('/weeks');
+      console.log('Weeks Base URL:', api.defaults.baseURL)
+      const res = await api.get('/weeks/');
       if (res.status === 200 && res.data.status === 'ok') {
         setWeeks(res.data.data);
       }

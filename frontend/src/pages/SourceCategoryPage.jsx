@@ -68,9 +68,9 @@ import {
     const fetchData = async () => {
       try {
         const [srcRes, catRes, weekRes] = await Promise.all([
-            api.get('/sources'),
-            api.get('/categories'),
-            api.get('/weeks'),
+            api.get('/sources/'),
+            api.get('/categories/'),
+            api.get('/weeks/'),
           ]);
         setSources(srcRes.data.data);
         setCategories(catRes.data.data);
@@ -101,7 +101,7 @@ import {
   
     const handleCreateSource = async () => {
       try {
-        await api.post('/sources', { name: newSourceName });
+        await api.post('sources/', { name: newSourceName });
         toast({ title: 'Источник добавлен', status: 'success' });
         setNewSourceName('');
         closeSourceModal();
@@ -113,7 +113,7 @@ import {
   
     const handleCreateCategory = async () => {
       try {
-        await api.post('/categories', { name: newCategoryName });
+        await api.post('categories/', { name: newCategoryName });
         toast({ title: 'Категория добавлена', status: 'success' });
         setNewCategoryName('');
         closeCategoryModal();
@@ -133,7 +133,7 @@ import {
             return;
         }
         try {
-            await api.post('/weeks', {
+            await api.post('weeks/', {
                 start_date: newWeekStart,
                 end_date: newWeekEnd,
         });

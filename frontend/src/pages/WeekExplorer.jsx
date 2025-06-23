@@ -157,7 +157,7 @@ function WeekExplorer({ onLogout }) {
     const key = `${weekId}-${sourceId}-${categoryId}`
     setLoadingLeadsKey(key)
     try {
-      const res = await api.get('/lead_metrics', {
+      const res = await api.get('/lead_metrics/', {
         params: {
           week_id: weekId,
           source_id: sourceId,

@@ -37,8 +37,8 @@ services:
      - "8080:8080"
    depends_on:
      - backend
-   volumes:
-     - ./frontend:/app
+  #  volumes:
+  #    - ./frontend:/app
 
 volumes:
   postgres_data:

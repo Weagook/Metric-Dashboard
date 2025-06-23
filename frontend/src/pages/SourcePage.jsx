@@ -77,7 +77,7 @@ function SourcePage({ onLogout }) {
 
   const fetchWeeks = async () => {
     try {
-      const res = await api.get('/weeks')
+      const res = await api.get('/weeks/')
       if (res.status === 200 && res.data.status === 'ok') {
         setWeeks(res.data.data)
       }
